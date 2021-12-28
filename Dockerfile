@@ -1,36 +1,33 @@
 FROM phusion/baseimage:0.9.22
 LABEL MAINTAINER maicheng.linyi@gmail.com
 
-ENV NAGIOS_HOME             /usr/local/nagios
-ENV NAGIOS_USER             nagios
-ENV NAGIOS_GROUP            nagcmd
-ENV DEBIAN_FRONTEND         noninteractive
-ENV NRDP_TOKEN              culaio239ncgklak
-ENV NCPA_TOKEN              mfasjlk1asjd7flj3ly
-ENV MYSQL_USER              nagios
-ENV MYSQL_PASSWORD          nagios
-ENV MYSQL_ADDRESS           nagios_mysql
-ENV MYSQL_DATABASE          nagios
+ENV \ 
+  NAGIOS_HOME             /usr/local/nagios \
+  NAGIOS_USER             nagios \
+  NAGIOS_GROUP            nagcmd \
+  DEBIAN_FRONTEND         noninteractive \
+  NRDP_TOKEN              culaio239ncgklak \
+  NCPA_TOKEN              mfasjlk1asjd7flj3ly \
+  MYSQL_USER              nagios \
+  MYSQL_PASSWORD          nagios \
+  MYSQL_ADDRESS           nagios_mysql \
+  MYSQL_DATABASE          nagios \
 
-ENV ADAGIOS_VERSION         1.6.3
-ENV GRAPHIOS_VERSION        2.0.3
-ENV GRAPHITE_VERSION        1.1.3
-ENV GRAFANA_VERSION         7.0.5
-ENV MK_LIVESTATUS_VERSION   1.2.8p20
-ENV NAGIOS_VERSION          4.4.6
-ENV NAGIOS_PLUGINS_VERSION  2.3.3
-ENV PYNAG_VERSION           1.1.2
-ENV NCPA_VERSION            2.1.3
-ENV WINEXE_VERSION          1.00.1-1_amd64
-ENV NDOUTILS_VERSION        2.1.3
-ENV NRDP_VERSION            1.5.2
-ENV NRPE_VERSION            3.2.1
-ENV OKCONFIG_VERSION        1.3.2-1
+  ADAGIOS_VERSION         1.6.3 \
+  GRAPHIOS_VERSION        2.0.3 \
+  GRAPHITE_VERSION        1.1.3 \
+  GRAFANA_VERSION         7.0.5 \
+  MK_LIVESTATUS_VERSION   1.2.8p20 \
+  NAGIOS_VERSION          4.4.6 \
+  NAGIOS_PLUGINS_VERSION  2.3.3 \
+  PYNAG_VERSION           1.1.2 \
+  NCPA_VERSION            2.1.3 \
+  WINEXE_VERSION          1.00.1-1_amd64 \
+  NDOUTILS_VERSION        2.1.3 \
+  NRDP_VERSION            1.5.2 \
+  NRPE_VERSION            3.2.1 \
+  OKCONFIG_VERSION        1.3.2-1 \
 
-# Remove below if you want use default apt mirror sites
-ADD config/apt-sources.list /etc/apt/sources.list
-# Remove below if you want use default pip mirror sites
-ADD config/pip.conf /root/.config/pip/pip.conf
 RUN set -eux; \
   apt-get update; \
   apt-get install -y --no-install-recommends \
